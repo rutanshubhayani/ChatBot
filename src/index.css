@@ -1,3 +1,15 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #0f0f0f; /* optional: dark background for contrast */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

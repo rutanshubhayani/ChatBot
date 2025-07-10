@@ -1,14 +1,16 @@
 .chatbot-container {
   width: 100%;
   max-width: 420px;
-  margin: 40px auto;
+  height: 70vh;
+  margin: 0; /* remove vertical margin */
   background: #222831;
   border-radius: 18px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  overflow: hidden;
 }
+
 
 .chatbot-header {
   background: #393e46;
@@ -108,3 +110,21 @@
 .chatbot-send-btn:hover {
   background: #019ca1;
 } 
+
+
+@media (max-width: 400px) {
+  .chatbot-container {
+    margin: 20px 10px;
+    height: 75vh;
+  }
+
+  .chatbot-input {
+    font-size: 1rem;
+    padding: 10px 14px;
+  }
+
+  .chatbot-send-btn {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+}

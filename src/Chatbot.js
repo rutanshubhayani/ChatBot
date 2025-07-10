@@ -38,8 +38,10 @@ function Chatbot() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+  messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  inputRef.current?.focus(); // Refocus input after any message update
+}, [messages]);
+
 
   const handleSend = async (e) => {
     e.preventDefault();
