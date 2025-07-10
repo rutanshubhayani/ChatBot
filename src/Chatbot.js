@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Chatbot.css';
+import ReactMarkdown from 'react-markdown';
 
 const GEMINI_API_KEY = 'AIzaSyB2pgAXCMaIhe1nBmCG2jXoFbaj8VQCZCY';
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
@@ -38,9 +39,9 @@ function Chatbot() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-  messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  inputRef.current?.focus(); // Refocus input after any message update
-}, [messages]);
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    inputRef.current?.focus(); // Refocus input after any message update
+  }, [messages]);
 
 
   const handleSend = async (e) => {
@@ -74,9 +75,16 @@ function Chatbot() {
       <div className="chatbot-messages">
         {messages.map((msg, idx) => (
           <div key={idx} className={`chatbot-message chatbot-message-${msg.sender}`}>
-            {msg.text}
+            <ReactMarkdown
+              components={{
+                p: ({ children }) => <span>{children}</span> // Prevents <p> from breaking layout
+              }}
+            >
+              {msg.text}
+            </ReactMarkdown>
           </div>
         ))}
+
         {loading && (
           <div className="chatbot-message chatbot-message-bot">Thinking...</div>
         )}
