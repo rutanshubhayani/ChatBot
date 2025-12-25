@@ -1,0 +1,8 @@
+ignores:
+  - eslint-config-react-app
+  - components
+  - types
+  - api
+  - hooks
+  - config
+  - lib

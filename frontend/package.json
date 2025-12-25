@@ -1,0 +1,49 @@
+{
+    "name": "nova-chat",
+    "version": "0.1.0",
+    "Author": "rhythm_italiya",
+    "private": true,
+    "dependencies": {
+        "@radix-ui/react-tooltip": "^1.0.7",
+        "@tailwindcss/typography": "^0.5.19",
+        "@types/react": "^19.2.7",
+        "@types/react-dom": "^19.2.3",
+        "axios": "^1.13.2",
+        "clsx": "^2.1.1",
+        "lucide-react": "^0.460.0",
+        "react": "^19.2.3",
+        "react-dom": "^19.2.3",
+        "react-markdown": "^10.1.0",
+        "react-scripts": "5.0.1",
+        "tailwind-merge": "^2.5.4",
+        "tailwindcss": "^3.4.14",
+        "typescript": "^4.9.5"
+    },
+    "devDependencies": {
+        "prettier": "^3.3.3"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "dev": "react-scripts start",
+        "build": "react-scripts build",
+        "format": "prettier --write ."
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

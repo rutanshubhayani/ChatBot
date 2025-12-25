@@ -1,0 +1,1 @@
+export { historyHandler } from './handler';

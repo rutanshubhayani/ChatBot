@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: spur-backend
+    runtime: node
+    env: node
+    buildCommand: npm ci && npx prisma generate && npm run build
+    startCommand: npm start
