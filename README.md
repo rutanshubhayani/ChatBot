@@ -269,7 +269,7 @@ Redis cache TTL can be configured via the `CACHE_TTL` environment variable (in s
 
 ## 👤 Author
 
-**Rhythm Italiya**
+**Rutanshu Bhayani**
 
 ---
 
