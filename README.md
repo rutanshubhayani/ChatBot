@@ -1,22 +1,22 @@
-# Spur Chat Bot
+# ChatBot
 
 A full-stack AI-powered chat application built with React, TypeScript, Node.js, and Express. The application features a modern chat interface with support for multiple AI providers (Google Gemini, OpenAI, Puter.js), Redis caching, and PostgreSQL database.
 
 ## 🌐 Live Demo
 
-Check out the live application: [https://spur-chat-bot.vercel.app/](https://spur-chat-bot.vercel.app/)
+Check out the live application: [https://chatbot.vercel.app/](https://chatbot.vercel.app/)
 
 ## 📦 Clone Repository
 
 ```bash
-git clone https://github.com/RhythmItaliya/spur_chat_bot.git
-cd spur_chat_bot
+git clone https://github.com/RhythmItaliya/chatbot.git
+cd chatbot
 ```
 
 ## 📁 Project Structure
 
 ```
-spur/
+chatbot/
 ├── frontend/          # React + TypeScript client application
 ├── backend/           # Node.js + Express server
 └── README.md          # This file
@@ -143,7 +143,7 @@ The backend is a robust Node.js server built with Express and TypeScript, featur
    ```env
    # Server Configuration
    PORT=8080
-   DATABASE_URL=postgresql://user:password@localhost:5432/spur
+   DATABASE_URL=postgresql://user:password@localhost:5432/chatbot
    CORS_ORIGINS=http://localhost:3000
    
    # AI Provider Configuration (choose one: google, openai, puter)

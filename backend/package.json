@@ -1,5 +1,5 @@
 {
-  "name": "spur_backend",
+  "name": "chatbot_backend",
   "version": "1.0.0",
   "description": "Founding Full‑Stack Engineer Take‑Home Assignment Backend",
   "main": "dist/index.js",

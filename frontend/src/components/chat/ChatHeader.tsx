@@ -11,7 +11,7 @@ export function ChatHeader({ onNewChat }: ChatHeaderProps) {
             <div className="flex items-center gap-2">
                 <Sparkles className="w-6 h-6" />
                 <div>
-                    <h1 className="font-bold">Rhyri Support</h1>
+                    <h1 className="font-bold">Velora Boutique</h1>
                     <p className="text-xs text-gray-500">AI Assistant</p>
                 </div>
             </div>

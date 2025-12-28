@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "components/ui/button";
 import { Textarea } from "components/ui/textarea";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Loader2 } from "lucide-react";
 
 interface ChatInputProps {
     onSend: (message: string) => void;
@@ -55,19 +55,26 @@ export function ChatInput({
                 onKeyDown={handleKeyDown}
                 placeholder={placeholder}
                 disabled={disabled}
-                className="min-h-[24px] max-h-[120px] resize-none border-0 bg-transparent p-2 flex-1 text-white placeholder:text-white/40 focus-visible:ring-0 focus-visible:ring-offset-0"
+                className="min-h-[24px] max-h-[120px] resize-none border-0 bg-transparent p-2 flex-1 text-white placeholder:text-white/40 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed"
                 rows={1}
             />
             <Button
                 onClick={handleSubmit}
                 disabled={disabled || !isValid}
                 size="icon"
-                className={`h-10 w-10 rounded-lg transition-all duration-300 ${isValid
-                    ? "bg-nova-primary hover:bg-nova-primary/80 text-white shadow-lg shadow-nova-primary/25"
-                    : "bg-white/10 text-white/30"
+                className={`h-10 w-10 rounded-lg transition-all duration-300 ${disabled
+                        ? "bg-white/5 text-white/20 cursor-not-allowed"
+                        : isValid
+                            ? "bg-nova-primary hover:bg-nova-primary/80 text-white shadow-lg shadow-nova-primary/25 hover:shadow-nova-primary/40"
+                            : "bg-white/10 text-white/30 cursor-not-allowed"
                     }`}
+                title={disabled ? "Please wait..." : isValid ? "Send message (Enter)" : "Type a message"}
             >
-                <ArrowUp className="h-5 w-5" />
+                {disabled ? (
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                ) : (
+                    <ArrowUp className="h-5 w-5" />
+                )}
                 <span className="sr-only">Send</span>
             </Button>
         </div>

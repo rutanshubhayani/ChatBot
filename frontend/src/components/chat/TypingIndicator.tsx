@@ -2,16 +2,22 @@ import { Sparkles } from "lucide-react";
 
 export function TypingIndicator() {
     return (
-        <div className="flex gap-2 p-2">
-            <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
-                <Sparkles className="w-4 h-4" />
+        <div className="flex gap-4 p-2 animate-fadeIn">
+            {/* AI Avatar */}
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg bg-gradient-to-br from-nova-primary to-blue-600 text-white">
+                <Sparkles className="w-5 h-5" />
             </div>
-            <div className="p-2 rounded bg-gray-100">
-                <div className="flex gap-1">
-                    <span className="w-2 h-2 rounded-full bg-gray-400 animate-pulse" />
-                    <span className="w-2 h-2 rounded-full bg-gray-400 animate-pulse delay-75" />
-                    <span className="w-2 h-2 rounded-full bg-gray-400 animate-pulse delay-150" />
+
+            {/* Typing bubble */}
+            <div className="flex flex-col gap-1">
+                <div className="p-4 rounded-2xl rounded-tl-sm bg-white/5 border border-white/10 shadow-md">
+                    <div className="flex gap-1.5 items-center">
+                        <span className="w-2 h-2 rounded-full bg-white/60 animate-bounce" style={{ animationDelay: '0ms' }} />
+                        <span className="w-2 h-2 rounded-full bg-white/60 animate-bounce" style={{ animationDelay: '150ms' }} />
+                        <span className="w-2 h-2 rounded-full bg-white/60 animate-bounce" style={{ animationDelay: '300ms' }} />
+                    </div>
                 </div>
+                <span className="text-[10px] text-white/40 ml-1">Agent is thinking...</span>
             </div>
         </div>
     );

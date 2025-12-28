@@ -1,6 +1,6 @@
-# Spur Frontend
+# ChatBot Frontend
 
-This is the frontend client for the Spur application, built with React, TypeScript, and Tailwind CSS.
+This is the frontend client for the ChatBot application, built with React, TypeScript, and Tailwind CSS.
 
 ## Prerequisites
 

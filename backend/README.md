@@ -1,6 +1,6 @@
-# Spur Backend
+# ChatBot Backend
 
-This is the backend server for the Spur application, built with Node.js, Express, and TypeScript. It uses Prisma for ORM and Redis for caching.
+This is the backend server for the ChatBot application, built with Node.js, Express, and TypeScript. It uses Prisma for ORM and Redis for caching.
 
 ## Prerequisites
 

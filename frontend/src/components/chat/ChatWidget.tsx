@@ -10,7 +10,9 @@ import { useChat } from "hooks/useChat";
 export function ChatWidget() {
     const { messages, sendMessage, isLoading, isInitializing, handleNewChat } = useChat();
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const messagesContainerRef = useRef<HTMLDivElement>(null);
 
+    // Auto-scroll to bottom when new messages arrive
     const scrollToBottom = useCallback(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }, []);
@@ -26,8 +28,11 @@ export function ChatWidget() {
             {/* Header */}
             <ChatHeader onNewChat={messages.length > 0 ? handleNewChat : undefined} />
 
-            {/* Messages area */}
-            <div className="flex-1 overflow-y-auto chat-scroll p-4 space-y-6 min-h-0 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+            {/* Messages area - Scrollable */}
+            <div
+                ref={messagesContainerRef}
+                className="flex-1 overflow-y-auto chat-scroll p-4 space-y-6 min-h-0 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent hover:scrollbar-thumb-white/30"
+            >
                 {isInitializing ? (
                     <div className="flex items-center justify-center h-full">
                         <Loader2 className="w-8 h-8 animate-spin text-nova-primary" />
@@ -38,41 +43,50 @@ export function ChatWidget() {
                             <Loader2 className="w-10 h-10 text-white" />
                         </div>
                         <h2 className="font-bold text-3xl mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/70">
-                            NovaChat
+                            Velora Boutique
                         </h2>
                         <p className="text-white/60 text-base max-w-md">
-                            Experience the future of communication. I'm here to assist you with anything you need.
+                            Welcome to Velora Boutique! I'm here to help you with sizing, styling, orders, and any questions about our fashion collections.
                         </p>
                     </div>
                 ) : (
-                    messages.map((message) => (
-                        <ChatMessage
-                            key={message.id}
-                            sender={message.sender}
-                            text={message.text}
-                            timestamp={message.timestamp}
-                            isNew={message.isNew}
-                            isCached={message.isCached}
-                        />
-                    ))
+                    <>
+                        {/* Message List */}
+                        {messages.map((message) => (
+                            <ChatMessage
+                                key={message.id}
+                                sender={message.sender}
+                                text={message.text}
+                                timestamp={message.timestamp}
+                                isNew={message.isNew}
+                                isCached={message.isCached}
+                            />
+                        ))}
+
+                        {/* Typing indicator - "Agent is typing..." */}
+                        {isLoading && <TypingIndicator />}
+
+                        {/* Scroll anchor for auto-scroll */}
+                        <div ref={messagesEndRef} />
+                    </>
                 )}
-
-                {/* Typing indicator */}
-                {isLoading && <TypingIndicator />}
-
-                {/* Scroll anchor */}
-                <div ref={messagesEndRef} />
             </div>
 
             {/* Quick replies */}
             {showQuickReplies && <QuickReplies onSelect={sendMessage} disabled={isLoading} />}
 
-            {/* Input */}
+            {/* Input area */}
             <div className="p-4 bg-black/20 backdrop-blur-md border-t border-white/10">
                 <ChatInput
                     onSend={sendMessage}
                     disabled={isLoading || isInitializing}
-                    placeholder={isLoading ? "Nova is thinking..." : "Type your message..."}
+                    placeholder={
+                        isLoading
+                            ? "Agent is typing..."
+                            : isInitializing
+                                ? "Initializing..."
+                                : "Type your message... (Press Enter to send)"
+                    }
                 />
             </div>
         </div>

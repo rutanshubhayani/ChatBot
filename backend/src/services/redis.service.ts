@@ -37,3 +37,13 @@ export const setCache = async (
 export const getRedisClient = (): Redis => {
     return client;
 };
+
+export const flushAll = async (): Promise<void> => {
+    try {
+        if (client.status !== 'ready') return;
+        await client.flushall();
+        console.log('Redis cache cleared successfully');
+    } catch (error) {
+        console.error('Error flushing Redis cache:', error);
+    }
+};
