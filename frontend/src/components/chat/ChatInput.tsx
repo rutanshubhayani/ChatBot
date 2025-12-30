@@ -25,6 +25,8 @@ export function ChatInput({
             // Reset textarea height
             if (textareaRef.current) {
                 textareaRef.current.style.height = "auto";
+                // Keep focus on input field for next message
+                textareaRef.current.focus();
             }
         }
     };
@@ -43,6 +45,13 @@ export function ChatInput({
             textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 120)}px`;
         }
     }, [message]);
+
+    // Auto-focus when component becomes enabled (after agent responds)
+    useEffect(() => {
+        if (!disabled && textareaRef.current) {
+            textareaRef.current.focus();
+        }
+    }, [disabled]);
 
     const isValid = message.trim().length > 0;
 
@@ -63,10 +72,10 @@ export function ChatInput({
                 disabled={disabled || !isValid}
                 size="icon"
                 className={`h-10 w-10 rounded-lg transition-all duration-300 ${disabled
-                        ? "bg-white/5 text-white/20 cursor-not-allowed"
-                        : isValid
-                            ? "bg-nova-primary hover:bg-nova-primary/80 text-white shadow-lg shadow-nova-primary/25 hover:shadow-nova-primary/40"
-                            : "bg-white/10 text-white/30 cursor-not-allowed"
+                    ? "bg-white/5 text-white/20 cursor-not-allowed"
+                    : isValid
+                        ? "bg-nova-primary hover:bg-nova-primary/80 text-white shadow-lg shadow-nova-primary/25 hover:shadow-nova-primary/40"
+                        : "bg-white/10 text-white/30 cursor-not-allowed"
                     }`}
                 title={disabled ? "Please wait..." : isValid ? "Send message (Enter)" : "Type a message"}
             >
