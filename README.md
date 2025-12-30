@@ -1,286 +1,375 @@
-# ChatBot
+# Velora Boutique AI Assistant 🤖
 
-A full-stack AI-powered chat application built with React, TypeScript, Node.js, and Express. The application features a modern chat interface with support for multiple AI providers (Google Gemini, OpenAI, Puter.js), Redis caching, and PostgreSQL database.
+An intelligent customer support chatbot designed specifically for **Velora Boutique**, a premium online fashion store. This full-stack application combines a sleek React frontend with a powerful Node.js backend to deliver instant, accurate customer service for fashion-conscious shoppers.
 
-## 🌐 Live Demo
+## ✨ What's Inside
 
-Check out the live application: [https://chatbot.vercel.app/](https://chatbot.vercel.app/)
+This repository contains a production-ready AI customer support system that helps Velora Boutique customers with:
 
-## 📦 Clone Repository
+- 🛍️ **Shopping Assistance** - Product inquiries, size guides, and availability
+- 📦 **Order Support** - Shipping information, tracking, and delivery estimates
+- 🔄 **Returns & Exchanges** - Policy information and return initiation
+- 💳 **Payment Help** - Payment methods, gift cards, and checkout assistance
+- 👗 **Style Advice** - Personalized fashion recommendations and outfit coordination
+- 📞 **General Support** - Store hours, contact information, and policies
 
-```bash
-git clone https://github.com/RhythmItaliya/chatbot.git
-cd chatbot
+The AI assistant, named **Velora**, is trained on comprehensive store knowledge including shipping policies, return procedures, product categories, and customer service best practices. Built with performance, accuracy, and exceptional user experience in mind.
+
+**Live Application**: Coming soon!
+
+## 🏗️ Architecture Overview
+
 ```
-
-## 📁 Project Structure
-
-```
-chatbot/
-├── frontend/          # React + TypeScript client application
-├── backend/           # Node.js + Express server
-└── README.md          # This file
+spur_chat_bot/
+├── frontend/           # React-based user interface
+├── backend/            # Express API server
+└── DEPLOYMENT_GUIDE.md # Production deployment instructions
 ```
 
 ---
 
-## 🎨 Frontend
+## 🎯 Features
 
-The frontend is a modern React application built with TypeScript and styled with Tailwind CSS, featuring a beautiful chat interface with Poppins font and smooth animations.
+### Client Application
+- 💬 Intuitive chat interface with real-time message updates
+- 🎨 Modern UI built with Tailwind CSS and custom styling
+- 📱 Fully responsive design for all screen sizes
+- ⌨️ Markdown rendering for rich text responses
+- ⚡ Optimized performance with React 19
 
-### Tech Stack
+### Server Application
+- 🔄 Flexible AI provider integration (Google Gemini, OpenAI, Puter.js)
+- 🚀 High-performance caching with Redis
+- 💾 Persistent data storage using PostgreSQL
+- 🔒 Secure CORS configuration
+- 🛡️ Built-in retry mechanisms with exponential backoff
+- 📊 Type-safe development with TypeScript
 
-- **Framework**: React 19.2.3
-- **Language**: TypeScript 4.9.5
-- **Styling**: Tailwind CSS 3.4.14
-- **UI Components**: Radix UI (Tooltips), Lucide React (Icons)
-- **Markdown Rendering**: React Markdown
-- **HTTP Client**: Axios
+---
 
-### Prerequisites
+## 🧠 AI Capabilities
 
-- Node.js (v16 or higher recommended)
-- npm or yarn
+### Velora - Your Fashion Support Assistant
 
-### Setup & Installation
+The AI agent is specifically trained to assist Velora Boutique customers with:
 
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
+#### 📚 Knowledge Base
+- **Store Information** - Complete details about Velora Boutique's history and mission
+- **Shipping Policies** - Free shipping thresholds, delivery timeframes, and international options
+- **Return & Refund Procedures** - 30-day return window, exchange policies, and refund timelines
+- **Payment Options** - Credit cards, PayPal, Apple Pay, Afterpay, and Klarna
+- **Product Categories** - Women's wear, men's fashion, accessories, and seasonal collections
+- **Size Guides** - Detailed sizing information and fit recommendations
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+#### 💬 Conversation Style
+- Warm, professional, and fashion-forward tone
+- Markdown-formatted responses for clarity
+- Personalized styling recommendations
+- Honest about limitations - escalates to human agents when needed
+- Focused, concise answers (2-4 sentences for simple queries)
+- Sophisticated language reflecting premium brand identity
 
-3. Configure environment variables:
-   ```bash
-   cp .example.env .env
-   ```
-   
-   Update `.env` with your backend API URL:
-   ```env
-   REACT_APP_API_URL=http://localhost:8080
-   ```
+#### 🎯 Core Functions
+1. **Customer Support** - Answer questions about policies, shipping, and returns
+2. **Product Assistance** - Help with sizing, availability, and product details
+3. **Style Consultation** - Provide outfit coordination and fashion advice
+4. **Order Management** - Track shipments and resolve order issues
+5. **Store Navigation** - Guide customers to relevant product categories
 
-### Running the Frontend
+The AI maintains conversation context, provides accurate information from its knowledge base, and never fabricates details it doesn't know.
 
-**Development Mode:**
+---
+
+## 🚀 Getting Started
+
+### System Requirements
+
+Before you begin, ensure you have:
+- **Node.js** v16 or higher
+- **PostgreSQL** database instance
+- **Redis** server (for caching)
+- **API Key** for your chosen AI provider
+
+### Installation Steps
+
+#### 1️⃣ Clone the Repository
+
 ```bash
-npm start
-# or
+git clone https://github.com/rutanshubhayani/spur_chat_bot.git
+cd spur_chat_bot
+```
+
+#### 2️⃣ Backend Setup
+
+```bash
+# Navigate to backend directory
+cd backend
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .example.env .env
+# Edit .env with your configuration (see Configuration section below)
+
+# Initialize database
+npx prisma migrate dev
+
+# Start the server
 npm run dev
 ```
 
-The application will start at [http://localhost:3000](http://localhost:3000)
+The backend server will be available at `http://localhost:8080`
 
-**Production Build:**
+#### 3️⃣ Frontend Setup
+
+Open a new terminal window:
+
 ```bash
-npm run build
-```
+# Navigate to frontend directory
+cd frontend
 
-Builds the app for production to the `build` folder with optimized performance.
+# Install dependencies
+npm install
 
-### Available Scripts
+# Configure environment
+cp .example.env .env
+# Update REACT_APP_API_URL to point to your backend
 
-- `npm start` / `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run format` - Format code using Prettier
-
-### Key Features
-
-- Modern chat interface with message history
-- Markdown support for AI responses
-- Real-time message streaming
-- Responsive design with Tailwind CSS
-- Custom Poppins font integration
-- Smooth animations and transitions
-
----
-
-## ⚙️ Backend
-
-The backend is a robust Node.js server built with Express and TypeScript, featuring multiple AI provider integrations, Redis caching, and PostgreSQL database with Prisma ORM.
-
-### Tech Stack
-
-- **Runtime**: Node.js
-- **Framework**: Express 5.2.1
-- **Language**: TypeScript 5.9.3
-- **Database**: PostgreSQL with Prisma ORM 6.19.1
-- **Caching**: Redis (ioredis 5.8.2)
-- **AI Providers**: 
-  - Google Gemini
-  - OpenAI
-  - Puter.js
-- **HTTP Client**: Axios
-
-### Prerequisites
-
-- Node.js (v16 or higher recommended)
-- PostgreSQL database
-- Redis server
-
-### Setup & Installation
-
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Configure environment variables:
-   ```bash
-   cp .example.env .env
-   ```
-   
-   Update `.env` with your configuration:
-   ```env
-   # Server Configuration
-   PORT=8080
-   DATABASE_URL=postgresql://user:password@localhost:5432/chatbot
-   CORS_ORIGINS=http://localhost:3000
-   
-   # AI Provider Configuration (choose one: google, openai, puter)
-   AI_PROVIDER=google
-   
-   # Google Gemini Configuration
-   GOOGLE_API_KEY=your_google_api_key_here
-   GOOGLE_MODEL=gemini-2.0-flash
-   
-   # OpenAI Configuration
-   OPENAI_API_KEY=your_openai_api_key_here
-   OPENAI_MODEL=gpt-4o-mini
-   
-   # Puter.js Configuration
-   PUTER_AUTH_TOKEN=your_puter_auth_token_here
-   PUTER_APP_UID=your_puter_app_uid_here
-   PUTER_MODEL=gpt-4o-mini
-   
-   # Redis Configuration
-   REDIS_URL=redis://localhost:6379
-   CACHE_TTL=600
-
-   # Backend Configuration
-   BACKEND_URL=your_backend_url_here
-   ```
-
-4. Set up the database:
-   ```bash
-   npx prisma migrate dev
-   ```
-
-### Running the Backend
-
-**Development Mode:**
-```bash
-npm run dev
-```
-
-**Production Mode:**
-```bash
-npm run build
+# Launch the application
 npm start
 ```
 
-The server will start at [http://localhost:8080](http://localhost:8080)
-
-### Available Scripts
-
-- `npm run dev` - Build and start in development mode
-- `npm run build` - Compile TypeScript to JavaScript
-- `npm start` - Start production server
-- `npm run format` - Format code using Prettier
-
-### Key Features
-
-- **Multi-AI Provider Support**: Switch between Google Gemini, OpenAI, and Puter.js
-- **Redis Caching**: Configurable TTL for improved performance
-- **Retry Logic**: Exponential backoff with jitter for API rate limiting
-- **Database**: PostgreSQL with Prisma ORM for data persistence
-- **CORS**: Configurable cross-origin resource sharing
-- **TypeScript**: Full type safety with path aliases
-
-### API Endpoints
-
-- `POST /api/chat` - Send a message and receive AI response
-- Additional endpoints for conversation management (see backend documentation)
+The frontend will open automatically at `http://localhost:3000`
 
 ---
 
-## 🚀 Quick Start (Full Stack)
+## ⚙️ Configuration
 
-To run both frontend and backend together:
+### Backend Environment Variables
 
-1. **Start the backend:**
-   ```bash
-   cd backend
-   npm install
-   cp .example.env .env
-   # Configure your .env file
-   npx prisma migrate dev
-   npm run dev
-   ```
+Create a `.env` file in the `backend` directory with the following:
 
-2. **Start the frontend (in a new terminal):**
-   ```bash
-   cd frontend
-   npm install
-   cp .example.env .env
-   npm start
-   ```
+```env
+# Server Settings
+PORT=8080
+DATABASE_URL=postgresql://username:password@localhost:5432/spur_db
+CORS_ORIGINS=http://localhost:3000
 
-3. **Access the application:**
-   - Frontend: [http://localhost:3000](http://localhost:3000)
-   - Backend: [http://localhost:8080](http://localhost:8080)
+# AI Provider (choose: google, openai, or puter)
+AI_PROVIDER=google
 
----
+# Google Gemini Setup
+GOOGLE_API_KEY=your_api_key_here
+GOOGLE_MODEL=gemini-2.0-flash
 
-## 🔧 Configuration
+# OpenAI Setup (if using OpenAI)
+OPENAI_API_KEY=your_api_key_here
+OPENAI_MODEL=gpt-4o-mini
 
-### AI Provider Selection
+# Puter.js Setup (if using Puter)
+PUTER_AUTH_TOKEN=your_token_here
+PUTER_APP_UID=your_app_uid_here
+PUTER_MODEL=gpt-4o-mini
 
-The backend supports three AI providers. Configure via the `AI_PROVIDER` environment variable:
+# Cache Configuration
+REDIS_URL=redis://localhost:6379
+CACHE_TTL=600
 
-- `google` - Google Gemini (default: gemini-2.0-flash)
-- `openai` - OpenAI GPT models (default: gpt-4o-mini)
-- `puter` - Puter.js integration
+# Backend URL
+BACKEND_URL=http://localhost:8080
+```
 
-### Cache Configuration
+### Frontend Environment Variables
 
-Redis cache TTL can be configured via the `CACHE_TTL` environment variable (in seconds). Default is 600 seconds (10 minutes).
+Create a `.env` file in the `frontend` directory:
 
----
-
-## 📝 Development Notes
-
-- Both frontend and backend use Prettier for code formatting
-- TypeScript is used throughout for type safety
-- The backend uses module aliases (`@/`) for cleaner imports
-- Redis caching helps reduce API costs and improve response times
-- Retry logic with exponential backoff handles rate limiting gracefully
+```env
+REACT_APP_API_URL=http://localhost:8080
+```
 
 ---
 
-## 👤 Author
+## 🛠️ Technology Stack
 
-**Rutanshu Bhayani**
+### Frontend Technologies
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| React | 19.2.3 | UI framework |
+| TypeScript | 4.9.5 | Type safety |
+| Tailwind CSS | 3.4.14 | Styling |
+| Axios | 1.13.2 | HTTP client |
+| React Markdown | 10.1.0 | Markdown rendering |
+| Lucide React | 0.460.0 | Icon library |
+
+### Backend Technologies
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Node.js | - | Runtime environment |
+| Express | 5.2.1 | Web framework |
+| TypeScript | 5.9.3 | Type safety |
+| Prisma | 6.19.1 | ORM |
+| PostgreSQL | - | Database |
+| Redis | - | Caching layer |
+| ioredis | 5.8.2 | Redis client |
 
 ---
 
-## 📄 License
+## 📚 Available Commands
 
-ISC
+### Frontend Commands
+
+```bash
+npm start          # Start development server
+npm run dev        # Alternative start command
+npm run build      # Create production build
+npm run format     # Format code with Prettier
+```
+
+### Backend Commands
+
+```bash
+npm run dev        # Build and start in development
+npm run build      # Compile TypeScript
+npm start          # Run production server
+npm run format     # Format code with Prettier
+npx prisma studio  # Open Prisma database GUI
+```
+
+---
+
+## 🌐 Deployment
+
+For detailed deployment instructions to Vercel (frontend) and Render (backend), see [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md).
+
+### Quick Deployment Overview
+
+**Frontend (Vercel)**:
+1. Connect your GitHub repository
+2. Set root directory to `frontend`
+3. Add `REACT_APP_API_URL` environment variable
+4. Deploy
+
+**Backend (Render)**:
+1. Create PostgreSQL and Redis instances
+2. Deploy web service from repository
+3. Configure all environment variables
+4. Run database migrations
+
+
+---
+
+## 🔌 API Reference
+
+### Chat Endpoint
+
+**POST** `/api/chat`
+
+Send a message and receive an AI-generated response.
+
+**Request Body**:
+```json
+{
+  "message": "Your message here",
+  "conversationId": "optional-conversation-id"
+}
+```
+
+**Response**:
+```json
+{
+  "response": "AI generated response",
+  "conversationId": "conversation-id"
+}
+```
+
+---
+
+## 🎨 Project Highlights
+
+### Smart Caching
+Redis-based caching reduces API calls and improves response times. Configurable TTL allows fine-tuning based on your needs.
+
+### Multi-Provider Support
+Seamlessly switch between different AI providers without changing your application code. Perfect for testing different models or managing costs.
+
+### Type Safety
+Full TypeScript implementation across both frontend and backend ensures fewer runtime errors and better developer experience.
+
+### Modern UI/UX
+Clean, responsive interface with smooth animations and markdown support for rich AI responses.
+
+### Production Ready
+Includes proper error handling, retry logic, CORS configuration, and environment-based configuration.
+
+---
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Database Connection Failed**
+- Verify PostgreSQL is running
+- Check `DATABASE_URL` format in `.env`
+- Ensure database exists
+
+**Redis Connection Error**
+- Confirm Redis server is running
+- Verify `REDIS_URL` in `.env`
+
+**CORS Errors**
+- Check `CORS_ORIGINS` matches your frontend URL
+- Ensure no trailing slashes in URLs
+
+**AI Provider Errors**
+- Verify API keys are correct
+- Check API quota/limits
+- Ensure `AI_PROVIDER` value is valid
+
+---
+
+## 📖 Learn More
+
+### Useful Resources
+- [React Documentation](https://react.dev/)
+- [Express.js Guide](https://expressjs.com/)
+- [Prisma Docs](https://www.prisma.io/docs)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 
 ---
 
 ## 🤝 Contributing
 
-For detailed setup instructions for each component, refer to:
-- [Frontend README](./frontend/README.md)
-- [Backend README](./backend/README.md)
+Contributions are welcome! Feel free to:
+- Report bugs
+- Suggest new features
+- Submit pull requests
+- Improve documentation
+
+---
+
+## 📝 License
+
+This project is licensed under the ISC License.
+
+---
+
+## 👨‍💻 Developer
+
+Built and maintained by **Rutanshu Bhayani**
+
+---
+
+## 🙏 Acknowledgments
+
+Special thanks to the open-source community for the amazing tools and libraries that made this project possible.
+
+---
+
+**Note**: For production deployment, make sure to:
+- Use environment variables for all sensitive data
+- Enable HTTPS
+- Set up proper monitoring and logging
+- Configure rate limiting
+- Implement proper authentication if needed
