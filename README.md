@@ -23,31 +23,11 @@ The AI assistant, named **Velora**, is trained on comprehensive store knowledge 
 spur_chat_bot/
 ├── frontend/           # React-based user interface
 ├── backend/            # Express API server
-└── DEPLOYMENT_GUIDE.md # Production deployment instructions
 ```
 
 ---
 
-## 🎯 Features
 
-### Client Application
-- 💬 Intuitive chat interface with real-time message updates
-- 🎨 Modern UI built with Tailwind CSS and custom styling
-- 📱 Fully responsive design for all screen sizes
-- ⌨️ Markdown rendering for rich text responses
-- ⚡ Optimized performance with React 19
-
-### Server Application
-- 🔄 Flexible AI provider integration (Google Gemini, OpenAI, Puter.js)
-- 🚀 High-performance caching with Redis
-- 💾 Persistent data storage using PostgreSQL
-- 🔒 Secure CORS configuration
-- 🛡️ Built-in retry mechanisms with exponential backoff
-- 📊 Type-safe development with TypeScript
-
----
-
-## 🧠 AI Capabilities
 
 ### Velora - Your Fashion Support Assistant
 
@@ -144,6 +124,27 @@ The frontend will open automatically at `http://localhost:3000`
 
 ---
 
+## 🎯 Features
+
+### Client Application
+- 💬 Intuitive chat interface with real-time message updates
+- 🎨 Modern UI built with Tailwind CSS and custom styling
+- 📱 Fully responsive design for all screen sizes
+- ⌨️ Markdown rendering for rich text responses
+- ⚡ Optimized performance with React 19
+
+### Server Application
+- 🔄 Flexible AI provider integration (Google Gemini, OpenAI, Puter.js)
+- 🚀 High-performance caching with Redis
+- 💾 Persistent data storage using PostgreSQL
+- 🔒 Secure CORS configuration
+- 🛡️ Built-in retry mechanisms with exponential backoff
+- 📊 Type-safe development with TypeScript
+
+---
+
+## 🧠 AI Capabilities
+
 ## ⚙️ Configuration
 
 ### Backend Environment Variables
@@ -239,8 +240,6 @@ npx prisma studio  # Open Prisma database GUI
 ---
 
 ## 🌐 Deployment
-
-For detailed deployment instructions to Vercel (frontend) and Render (backend), see [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md).
 
 ### Quick Deployment Overview
 
